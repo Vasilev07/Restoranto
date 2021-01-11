@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Resturanto.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <div>Hello</div>
+    <div>There are @Model.Count() restaurants</div>
+</div>
+
+<ul>
+    @foreach(var restaurant in Model)
+    {
+        <li>@restaurant.Name</li>
+    }
+</ul>
