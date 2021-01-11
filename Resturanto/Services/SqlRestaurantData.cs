@@ -30,6 +30,8 @@ namespace Resturanto.Services
         public Restaurant Get(int id)
         {
             return db.Restaurants.FirstOrDefault(r => r.Id == id);
+
+
         }
 
         public IEnumerable<Restaurant> GetAll()

@@ -3,7 +3,6 @@ using Resturanto.Services;
 using System;
 using System.Web.Mvc;
 using Resturanto.Models;
-using System.Collections.Generic;
 
 namespace Resturanto.Controllers
 {
@@ -28,18 +27,18 @@ namespace Resturanto.Controllers
         public ActionResult Details(int id)
         {
             var model = db.Get(id);
-/*
+
             var viewModel = new ViewModels.Restaurant();
             viewModel.Cuisine = model.Cuisine;
             viewModel.Name = model.Name;
-            viewModel.Tables = GetTablesForRestaurant(id);
-*/
+            viewModel.Tables = tableController.GetTablesForRestaurant(id);
+
             if (model == null)
             {
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -67,7 +66,6 @@ namespace Resturanto.Controllers
                 {
                     Table table = new Table();
                     table.Reserved = false;
-                    tableController.AddTable(table);
                     restaurantToSave.Tables.Add(table);
                 }
                 db.Add(restaurantToSave);

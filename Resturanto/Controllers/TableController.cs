@@ -53,6 +53,11 @@ namespace Resturanto.Controllers
             }
         }
 
+        public int GetTablesForRestaurant(int id)
+        {
+            return db.GetTablesForRestaurant(id).Count();
+        }
+
         // GET: Table/Edit/5
         public ActionResult Edit(int id)
         {

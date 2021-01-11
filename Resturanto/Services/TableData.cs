@@ -25,10 +25,10 @@ namespace Resturanto.Services
                    select t;
         }
 
-        /*public ICollection<TableData> GetTablesForRestaurant(int id)
+        public IEnumerable<Table> GetTablesForRestaurant(int id)
         {
-            return from t in db.Table
-                   where t.;
-        }*/
+            return db.Table.Where(r => r.RestaurantId == id);
+            /*throw new NotImplementedException();*/
+        }
     }
 }

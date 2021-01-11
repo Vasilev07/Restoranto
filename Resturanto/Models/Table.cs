@@ -10,5 +10,8 @@ namespace Resturanto.Models
         public int Id { get; set; }
         
         public bool Reserved { get; set; }
+
+        public int RestaurantId { get; set; }
+        public Models.Restaurant Restaurant { get; set; }
     }
 }

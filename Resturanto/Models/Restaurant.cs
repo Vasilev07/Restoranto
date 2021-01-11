@@ -11,6 +11,6 @@ namespace Resturanto.Models
         public string Name { get; set; }
         public CuisineType Cuisine { get; set; }
 
-        public ICollection<Table> Tables { get; set; }
+        public ICollection<Table> Tables { get; set; } = new List<Table>();
     }
 }

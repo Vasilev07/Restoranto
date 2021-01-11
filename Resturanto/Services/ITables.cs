@@ -7,6 +7,6 @@ namespace Resturanto.Services
     {
         void Add(Table table);
         IEnumerable<Table> GetAll();
-        /*ICollection<TableData> GetTablesForRestaurant(int id);*/
+        IEnumerable<Table> GetTablesForRestaurant(int id);
     }
 }

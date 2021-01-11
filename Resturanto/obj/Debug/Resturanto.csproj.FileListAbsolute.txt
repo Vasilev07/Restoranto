@@ -126,5 +126,3 @@ D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Memory.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Numerics.Vectors.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Threading.Tasks.Extensions.xml
-D:\InformationalSystemsProject\Resturanto\Resturanto\obj\Debug\Resturanto.Migrations.Give_it_a_name.resources
-D:\InformationalSystemsProject\Resturanto\Resturanto\obj\Debug\Resturanto.csproj.GenerateResource.cache
