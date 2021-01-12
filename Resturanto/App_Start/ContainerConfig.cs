@@ -13,11 +13,14 @@ namespace Resturanto.App_Start
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<SqlRestaurantData>()
+            builder.RegisterType<RestaurantData>()
                 .As<IRestaurantData>()
                 .InstancePerRequest();
             builder.RegisterType<TableData>()
-                .As<ITables>()
+                .As<ITablesData>()
+                .InstancePerRequest();
+            builder.RegisterType<ReservationData>()
+                .As<IReservationData>()
                 .InstancePerRequest();
 
             builder.RegisterType<Restoranto>().InstancePerRequest();

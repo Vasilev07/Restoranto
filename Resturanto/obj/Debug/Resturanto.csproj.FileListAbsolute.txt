@@ -126,3 +126,9 @@ D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Memory.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Numerics.Vectors.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Threading.Tasks.Extensions.xml
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Net.Http.Formatting.dll
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Web.Http.dll
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Web.Http.WebHost.dll
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Net.Http.Formatting.xml
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Web.Http.xml
+D:\InformationalSystemsProject\Resturanto\Resturanto\bin\System.Web.Http.WebHost.xml

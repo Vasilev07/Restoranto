@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Resturanto.ViewModels.ReservationsViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Reservation Time
+        </th>
+        <th>
+            Reservation Name
+        </th>
+        <th>
+            Reservation Number
+        </th>
+        <th>
+            Table Id
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reservations.ReservationTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reservations.ReservationName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reservations.ReservationNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Reservations.TableId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RestaurantName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Reservations.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Reservations.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Reservations.Id })
+    </td>
+</tr>
+    }
+
+</table>

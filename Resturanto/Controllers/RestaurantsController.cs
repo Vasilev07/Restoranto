@@ -3,6 +3,7 @@ using Resturanto.Services;
 using System;
 using System.Web.Mvc;
 using Resturanto.Models;
+using System.Collections.Generic;
 
 namespace Resturanto.Controllers
 {
@@ -28,7 +29,7 @@ namespace Resturanto.Controllers
         {
             var model = db.Get(id);
 
-            var viewModel = new ViewModels.Restaurant();
+            var viewModel = new ViewModels.RestaurantViewModel();
             viewModel.Cuisine = model.Cuisine;
             viewModel.Name = model.Name;
             viewModel.Tables = tableController.GetTablesForRestaurant(id);
@@ -49,7 +50,7 @@ namespace Resturanto.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Create(ViewModels.Restaurant restaurant)
+        public ActionResult Create(ViewModels.RestaurantViewModel restaurant)
         {
             if (String.IsNullOrEmpty(restaurant.Name))
             {
@@ -78,23 +79,42 @@ namespace Resturanto.Controllers
         public ActionResult Edit(int id)
         {
             var model = db.Get(id);
+            var viewModel = new ViewModels.RestaurantViewModel();
+            viewModel.Cuisine = model.Cuisine;
+            viewModel.Name = model.Name;
+            viewModel.Tables = tableController.GetTablesForRestaurant(id);
 
             if (model == null)
             {
                 return View("NotFound");
             }
 
-            return View(model);
+            return View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Models.Restaurant restaurant)
+        public ActionResult Edit(ViewModels.RestaurantViewModel restaurant)
         {
+            var restaurantModel = db.Get(restaurant.Id);
+
+            var previousRestaurantTables = tableController.GetTablesForRestaurant(restaurant.Id);
+
+            if (previousRestaurantTables != restaurant.Tables)
+            {
+                tableController.DeleteTableByRestaurantId(restaurant.Id);
+                for (int i = 0; i < restaurant.Tables; i++)
+                {
+                    Table table = new Table();
+                    table.Reserved = false;
+                    restaurantModel.Tables.Add(table);
+                }
+            }
+
             if (ModelState.IsValid)
             {
-                db.Update(restaurant);
-                return RedirectToAction("Details", new { id = restaurant.Id });
+                db.Update(restaurantModel);
+                return RedirectToAction("Index");
             }
 
             return View(restaurant);
@@ -120,6 +140,11 @@ namespace Resturanto.Controllers
             db.Delete(id);
 
             return RedirectToAction("Index");
+        }
+
+        public IEnumerable<Restaurant> GetAllRestaurants()
+        {
+            return db.GetAll();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Resturanto.Services
 {
-    public class TableData : ITables
+    public class TableData : ITablesData
     {
         private readonly Restoranto db;
         public TableData(Restoranto db)
@@ -25,10 +25,28 @@ namespace Resturanto.Services
                    select t;
         }
 
+        public Table GetById(int id)
+        {
+            return db.Table.FirstOrDefault(t => t.Id == id);
+        }
+
         public IEnumerable<Table> GetTablesForRestaurant(int id)
         {
             return db.Table.Where(r => r.RestaurantId == id);
-            /*throw new NotImplementedException();*/
+        }
+
+        public void DeleteTableByRestaurantId(int id)
+        {
+            var data = db.Table.Where(t => t.RestaurantId == id).ToList();
+
+            data.ForEach(t => DeleteTableById(t.Id));
+        }
+
+        public void DeleteTableById(int id)
+        {
+            var tableToRemove = GetById(id);
+
+            db.Table.Remove(tableToRemove);
         }
     }
 }

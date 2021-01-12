@@ -13,5 +13,7 @@ namespace Resturanto.Models
 
         public int RestaurantId { get; set; }
         public Models.Restaurant Restaurant { get; set; }
+
+        public IColecction<Reservation> Reservations { get; set; }
     }
 }

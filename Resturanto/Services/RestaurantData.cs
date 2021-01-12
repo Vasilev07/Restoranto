@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Resturanto.Services
 {
-    public class SqlRestaurantData : IRestaurantData
+    public class RestaurantData : IRestaurantData
     {
         private readonly Restoranto db;
 
-        public SqlRestaurantData(Restoranto db)
+        public RestaurantData(Restoranto db)
         {
             this.db = db;
         }
@@ -30,8 +30,6 @@ namespace Resturanto.Services
         public Restaurant Get(int id)
         {
             return db.Restaurants.FirstOrDefault(r => r.Id == id);
-
-
         }
 
         public IEnumerable<Restaurant> GetAll()

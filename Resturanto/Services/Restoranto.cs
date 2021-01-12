@@ -8,5 +8,7 @@ namespace Resturanto.Services
         public DbSet<Restaurant> Restaurants { get; set; }
 
         public DbSet<Table> Table { get; set; }
+
+        public DbSet<Reservation> Reservation { get; set; }
     }
 }

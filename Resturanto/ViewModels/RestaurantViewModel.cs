@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Resturanto.ViewModels
 {
-    public class Restaurant
+    public class RestaurantViewModel
     {
         public int Id { get; set; }
 
